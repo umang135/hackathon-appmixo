@@ -1,45 +1,70 @@
-# movies-app
+# reactHooks-redux-js-buy-sdk
 
-# Introduction
+An example using [js-buy-sdk](https://github.com/Shopify/js-buy-sdk) built with [React](https://facebook.github.io/react/) and [Redux](https://github.com/reduxjs/redux). This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-This repository is the result of the tutorial to develop your first MERN application and you can find it [here](https://medium.com/@samarony.barros/how-to-create-your-first-mern-mongodb-express-js-react-js-and-node-js-stack-7e8b20463e66)
+## Prerequisites
 
-## What you should install?
+You will need the following things properly installed on your computer.
 
-For this project, I decided to use the MERN (MongoDB, Express.js, React.js, and Node.js) technology.
-![mern](https://miro.medium.com/max/678/1*dqvlaszRLvoPmARpOlLN9A.png)
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/) (with NPM)
+- [Yarn](https://yarnpkg.com/en/)
 
-Firstly, you should install
+## Installation
 
--   [Mongo](https://www.mongodb.com/) 4.0.4+
--   [ExpressJS](https://expressjs.com/) 4.16.3+
--   [ReactJS](https://reactjs.org/) 16.5.0+
--   [Node](https://nodejs.org/en/) 11.4.0+ (It's recommended to use 10.15.1 LTS)
+- `git clone https://github.com/Shopify/storefront-api-examples.git` this repository
+- `cd storefront-api-examples`
+- `cd reactHooks-redux-js-buy`
+- `yarn install`
 
-## Download
+## Configuring
 
-You can download the folder on my [GitHub](https://github.com/samaronybarros/) or you can do this directly on [this link](https://github.com/samaronybarros/movies-app).
+If you would like to connect your store to this example, open up `src/redux/ducks/shopify/index.js` and update the `domain` and `storefrontAccessToken` at the top of the page:
 
-If you have git installed on your PC, you just need do as follow:
-
-```
-$ git clone https://github.com/samaronybarros/movies-app.git
-```
-
-## Configuring App
-
-If you have all the prerequisites installed you should verify if your MongoDB is up.
-
-```
-$ cd movies-app
-$ cd server
-$ yarn install
-$ nodemon index.js
+```js
+const client = Client.buildClient({
+	storefrontAccessToken: "your-storefront-access-token",
+	domain: "your-shop-name.myshopify.com",
+})
 ```
 
+To fetch a collection, uncomment the collection functions in `src/components/App.js`, and in `src/redux/ducks/shopify/index.js`
+
+```js
+function getCollection()
+fetchCollection()
 ```
-$ cd movies-app
-$ cd client
-$ yarn install
-$ yarn start
+
+React-icons are used as a dependency, but could easily be changed to something else.
+
+## Running
+
+Start a local server:
+
 ```
+yarn start
+```
+
+- Visit your app at [http://localhost:3000](http://localhost:3000).
+
+## Further Reading / Useful Links
+
+- [React](https://facebook.github.io/react/)
+- [Redux](https://github.com/reduxjs/redux)
+- [JS Buy SDK](https://github.com/Shopify/js-buy-sdk)
+
+## Contributing
+
+For help on setting up the repo locally, building, testing, and contributing
+please see [CONTRIBUTING.md](https://github.com/Shopify/storefront-api-examples/blob/master/CONTRIBUTING.md).
+
+## Code of Conduct
+
+All developers who wish to contribute through code or issues, take a look at the
+[CODE_OF_CONDUCT.md](https://github.com/Shopify/storefront-api-examples/blob/master/CODE_OF_CONDUCT.md).
+
+## License
+
+MIT, see [LICENSE](https://github.com/Shopify/storefront-api-examples/blob/master/LICENSE.txt) for details.
+
+<img src="https://cdn.shopify.com/shopify-marketing_assets/builds/19.0.0/shopify-full-color-black.svg" width="200" />
